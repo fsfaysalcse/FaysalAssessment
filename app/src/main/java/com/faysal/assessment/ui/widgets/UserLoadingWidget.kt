@@ -12,7 +12,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -22,30 +21,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-
-
-@Composable
-fun UsersLoadingShimmerWidget(
-    modifier: Modifier = Modifier,
-    itemCounts: Int = 10
-) {
-
-    LazyColumn(
-        modifier = modifier,
-        verticalArrangement = Arrangement.spacedBy(10.dp)
-    ) {
-        items(itemCounts) {
-            UserLoading(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .height(120.dp),
-                onUserClick = {}
-            )
-        }
-    }
-}
 
 @Composable
 fun UserLoading(
@@ -61,6 +37,9 @@ fun UserLoading(
             contentColor = MaterialTheme.colorScheme.onBackground
         ),
         shape = RoundedCornerShape(9.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 10.dp
+        )
     ) {
 
         Row(
@@ -118,10 +97,4 @@ fun UserLoading(
             }
         }
     }
-}
-
-@Preview
-@Composable
-fun UserLoadingPreview() {
-    UsersLoadingShimmerWidget()
 }

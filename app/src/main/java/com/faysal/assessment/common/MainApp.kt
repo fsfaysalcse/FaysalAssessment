@@ -1,7 +1,7 @@
 package com.faysal.assessment.common
 
 import android.app.Application
-import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.HiltAndroidApp
 
-@HiltViewModel
+@HiltAndroidApp
 class MainApp : Application()

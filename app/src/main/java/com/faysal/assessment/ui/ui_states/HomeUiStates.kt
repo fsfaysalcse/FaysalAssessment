@@ -6,5 +6,5 @@ sealed class HomeUiStates {
     data object Empty : HomeUiStates()
     data object Loading : HomeUiStates()
     class Error(val error: String) : HomeUiStates()
-    class Success(val success: List<UserPosts>) : HomeUiStates()
+    class Success(val userPosts: List<UserPosts>) : HomeUiStates()
 }

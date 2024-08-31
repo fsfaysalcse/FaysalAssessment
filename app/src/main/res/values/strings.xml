@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Faysal\'s Assessment</string>
+    <string name="txt_no_data_found">No Data Found</string>
 </resources>

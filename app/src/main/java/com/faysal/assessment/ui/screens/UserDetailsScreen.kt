@@ -1,5 +1,6 @@
 package com.faysal.assessment.ui.screens
 
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -9,6 +10,9 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -33,7 +37,6 @@ fun UserDetailsScreen(
     userPosts: UserPosts
 ) {
 
-    val userPost = DUMMY_DATA
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.surface
@@ -51,7 +54,7 @@ fun UserDetailsScreen(
                     .height(200.dp)
             ) {
                 AssessmentImage(
-                    imageUrl = userPost.user.thumbnailUrl,
+                    imageUrl = userPosts.user.thumbnailUrl,
                     contentScale = ContentScale.Crop,
                     modifier = Modifier.fillMaxSize()
                 )
@@ -62,6 +65,10 @@ fun UserDetailsScreen(
                     },
                     modifier = Modifier
                         .padding(horizontal = 16.dp, vertical = 20.dp)
+                        .background(
+                            color = MaterialTheme.colorScheme.background.copy(alpha = 0.5f),
+                            shape = CircleShape
+                        )
                         .size(45.dp)
                         .align(Alignment.TopStart)
                 ) {
@@ -76,11 +83,12 @@ fun UserDetailsScreen(
 
             Column(
                 modifier = Modifier
-                    .fillMaxWidth()
+                    .verticalScroll(rememberScrollState())
+                    .fillMaxSize()
                     .padding(horizontal = 16.dp),
                 verticalArrangement = Arrangement.spacedBy(8.dp)
             ) {
-                userPost.posts.forEach { post ->
+                userPosts.posts.forEach { post ->
                     PostWidget(
                         post = post,
                         modifier = Modifier.fillMaxWidth()
