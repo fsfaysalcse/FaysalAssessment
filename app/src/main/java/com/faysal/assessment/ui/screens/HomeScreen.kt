@@ -29,11 +29,15 @@ import com.faysal.assessment.R
 import com.faysal.assessment.common.UserDetailsRoute
 import com.faysal.assessment.data.models.DUMMY_LIST
 import com.faysal.assessment.ui.theme.Nunito
+import com.faysal.assessment.ui.viewmodels.MainViewModel
 import com.faysal.assessment.ui.widgets.UserCardWidget
 import com.google.gson.Gson
 
 @Composable
-fun HomeScreen(navController: NavHostController? = null) {
+fun HomeScreen(
+    navController: NavHostController? = null,
+    viewModel: MainViewModel? = null
+) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.surface

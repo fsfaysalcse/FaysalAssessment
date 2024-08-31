@@ -22,8 +22,10 @@ import com.faysal.assessment.ui.screens.HomeScreen
 import com.faysal.assessment.ui.screens.UserDetailsScreen
 import com.faysal.assessment.ui.theme.FaysalsAssessmentTheme
 import com.google.gson.Gson
+import dagger.hilt.android.AndroidEntryPoint
 import kotlin.reflect.typeOf
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
