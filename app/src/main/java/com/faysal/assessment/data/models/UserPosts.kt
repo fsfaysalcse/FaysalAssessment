@@ -28,3 +28,5 @@ val DUMMY_DATA = UserPosts(
         )
     )
 )
+
+val DUMMY_LIST = listOf(DUMMY_DATA, DUMMY_DATA, DUMMY_DATA, DUMMY_DATA, DUMMY_DATA)

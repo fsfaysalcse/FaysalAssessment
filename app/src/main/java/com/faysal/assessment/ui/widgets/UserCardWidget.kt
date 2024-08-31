@@ -23,13 +23,15 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.faysal.assessment.data.models.DUMMY_DATA
 import com.faysal.assessment.data.models.User
+import com.faysal.assessment.data.models.UserPosts
 import com.faysal.assessment.ui.theme.Nunito
 
 @Composable
 fun UserCardWidget(
     modifier: Modifier = Modifier,
-    user: User,
+    userPost: UserPosts,
     onUserClick: () -> Unit
 ) {
 
@@ -41,6 +43,9 @@ fun UserCardWidget(
             contentColor = MaterialTheme.colorScheme.onBackground
         ),
         shape = RoundedCornerShape(9.dp),
+        elevation = CardDefaults.cardElevation(
+            defaultElevation = 10.dp
+        )
     ) {
 
         Row(
@@ -51,7 +56,7 @@ fun UserCardWidget(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             AssessmentImage(
-                imageUrl = user.thumbnailUrl,
+                imageUrl = userPost.user.thumbnailUrl,
                 contentScale = ContentScale.Crop,
                 modifier = Modifier
                     .size(80.dp)
@@ -64,7 +69,7 @@ fun UserCardWidget(
                     .padding(start = 20.dp)
             ) {
                 Text(
-                    text = user.name,
+                    text = userPost.user.name,
                     style = MaterialTheme.typography.titleMedium,
                     maxLines = 1,
                     overflow = TextOverflow.Ellipsis,
@@ -75,7 +80,7 @@ fun UserCardWidget(
                 Spacer(modifier = Modifier.height(4.dp))
 
                 Text(
-                    text = "Post Count ${user.postCount}",
+                    text = "Post Count ${userPost.posts.size}",
                     style = MaterialTheme.typography.bodySmall,
                     fontFamily = Nunito,
                     modifier = Modifier.fillMaxWidth()
@@ -91,13 +96,7 @@ fun UserCardWidget(
 @Composable
 fun PostCardWidgetPreview() {
     UserCardWidget(
-        user = User(
-            userId = 1,
-            albumId = 124,
-            name = "Faysal Ahmed",
-            url = "https://dummyimage.com/600/92c952&text=User+1",
-            thumbnailUrl = "https://dummyimage.com/150/92c952&text=User+1"
-        ),
+        userPost = DUMMY_DATA,
         modifier = Modifier.fillMaxWidth().height(120.dp),
     ) {
 
