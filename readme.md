@@ -2,7 +2,8 @@
 
 ![SCREENSHOTS](https://github.com/fsfaysalcse/FaysalAssessment/blob/main/demo/app_screenshots.png?raw=true)
 
-[Demo APK](blob:https://github.com/1ee73362-12ef-48ac-baf0-14d8685e8d49)
+[**Download Demo APK
+**](https://github.com/fsfaysalcse/FaysalAssessment/blob/main/demo/app_demo.apk?raw=true)
 
 ### Project Overview
 
