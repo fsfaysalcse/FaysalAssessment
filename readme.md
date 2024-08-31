@@ -3,7 +3,7 @@
 ![SCREENSHOTS](https://github.com/fsfaysalcse/FaysalAssessment/blob/main/demo/app_screenshots.png?raw=true)
 
 [**Download Demo APK
-**](https://github.com/fsfaysalcse/FaysalAssessment/blob/main/demo/app_demo.apk?raw=true)
+**](https://github.com/fsfaysalcse/FaysalAssessment/blob/main/demo/app-debug.apk)
 
 ### Project Overview
 
@@ -30,6 +30,8 @@ development:
 - **Retrofit**: A type-safe HTTP client for making network requests to the API.
 - **Gson**: A library for converting JSON strings to Java/Kotlin objects and vice versa.
 - **Kotlin Coroutines**: Used for asynchronous programming to handle background tasks.
+- **Jetpack Compose**: Used for building the UI instead of XML, providing a more modern and
+  declarative approach to UI development.
 
 ### Why These Libraries?
 
@@ -40,9 +42,12 @@ development:
   working with API responses.
 - **Kotlin Coroutines**: Facilitates writing asynchronous code in a more readable and maintainable
   way, avoiding callback hell.
+- **Jetpack Compose**: Offers a more intuitive and flexible way to build UIs, reducing boilerplate
+  code and improving code readability.
 
 ### How to Build and Run
 
 1. Clone the repository:
    ```sh
    git clone https://github.com/fsfaysalcse/FaysalAssessment.git
+    ```
