@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
@@ -31,7 +30,7 @@ import com.faysal.assessment.ui.widgets.PostWidget
 @Composable
 fun UserDetailsScreen(
     navController: NavHostController? = null,
-    posts: UserPosts
+    userPosts: UserPosts
 ) {
 
     val userPost = DUMMY_DATA
@@ -58,9 +57,10 @@ fun UserDetailsScreen(
                 )
 
                 IconButton(
-                    onClick = {},
+                    onClick = {
+                        navController?.navigateUp()
+                    },
                     modifier = Modifier
-                        .statusBarsPadding()
                         .padding(horizontal = 16.dp, vertical = 20.dp)
                         .size(45.dp)
                         .align(Alignment.TopStart)
@@ -96,5 +96,5 @@ fun UserDetailsScreen(
 @Preview
 @Composable
 fun UserDetailsScreenPreview() {
-    UserDetailsScreen(posts = DUMMY_DATA, navController = null)
+    UserDetailsScreen(userPosts = DUMMY_DATA, navController = null)
 }

@@ -9,7 +9,6 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.itemsIndexed
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -31,6 +30,7 @@ import com.faysal.assessment.common.UserDetailsRoute
 import com.faysal.assessment.data.models.DUMMY_LIST
 import com.faysal.assessment.ui.theme.Nunito
 import com.faysal.assessment.ui.widgets.UserCardWidget
+import com.google.gson.Gson
 
 @Composable
 fun HomeScreen(navController: NavHostController? = null) {
@@ -48,13 +48,8 @@ fun HomeScreen(navController: NavHostController? = null) {
                 modifier = Modifier
                     .fillMaxWidth()
                     .background(
-                        color = MaterialTheme.colorScheme.primary,
-                        shape = RoundedCornerShape(
-                            bottomEnd = 16.dp,
-                            bottomStart = 16.dp
-                        )
+                        color = MaterialTheme.colorScheme.primary
                     )
-                    .statusBarsPadding()
                     .height(55.dp),
                 contentAlignment = Alignment.Center
             ) {
@@ -83,7 +78,8 @@ fun HomeScreen(navController: NavHostController? = null) {
                     UserCardWidget(
                         userPost = userPost,
                         onUserClick = {
-                            navController?.navigate(UserDetailsRoute(userPost))
+                            val userPostJson = Gson().toJson(userPost)
+                            navController?.navigate(UserDetailsRoute(userPostJson))
                         }
                     )
                 }
