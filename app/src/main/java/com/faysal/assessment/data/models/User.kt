@@ -1,5 +1,8 @@
 package com.faysal.assessment.data.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class User(
     val albumId: Int,
     val name: String,

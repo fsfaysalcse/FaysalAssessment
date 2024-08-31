@@ -1,5 +1,8 @@
 package com.faysal.assessment.data.models
 
+import kotlinx.serialization.Serializable
+
+@Serializable
 data class UserPosts(
     val user: User,
     val posts: List<Post> = emptyList()

@@ -20,17 +20,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.faysal.assessment.R
+import com.faysal.assessment.common.UserDetailsRoute
 import com.faysal.assessment.data.models.DUMMY_LIST
 import com.faysal.assessment.ui.theme.Nunito
 import com.faysal.assessment.ui.widgets.UserCardWidget
 
 @Composable
-fun HomeScreen() {
+fun HomeScreen(navController: NavHostController? = null) {
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         containerColor = MaterialTheme.colorScheme.surface
@@ -56,10 +59,12 @@ fun HomeScreen() {
                 contentAlignment = Alignment.Center
             ) {
                 Text(
-                    text = stringResource(id = R.string.app_name),
+                    text = stringResource(id = R.string.app_name).uppercase(),
                     color = MaterialTheme.colorScheme.onPrimary,
                     fontFamily = Nunito,
                     fontSize = 16.sp,
+                    letterSpacing = 2.sp,
+                    fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center,
                     modifier = Modifier
                 )
@@ -74,10 +79,12 @@ fun HomeScreen() {
                 item {
                     Spacer(modifier = Modifier.height(16.dp))
                 }
-                itemsIndexed(DUMMY_LIST) { index, userPost ->
+                itemsIndexed(DUMMY_LIST) { _, userPost ->
                     UserCardWidget(
                         userPost = userPost,
-                        onUserClick = {}
+                        onUserClick = {
+                            navController?.navigate(UserDetailsRoute(userPost))
+                        }
                     )
                 }
             }
@@ -88,5 +95,5 @@ fun HomeScreen() {
 @Preview
 @Composable
 fun PreviewHomeScreen() {
-    HomeScreen()
+    HomeScreen(navController = null)
 }

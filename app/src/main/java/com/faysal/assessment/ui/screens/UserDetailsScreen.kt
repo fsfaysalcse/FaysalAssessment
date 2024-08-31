@@ -21,13 +21,18 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import com.faysal.assessment.R
 import com.faysal.assessment.data.models.DUMMY_DATA
+import com.faysal.assessment.data.models.UserPosts
 import com.faysal.assessment.ui.widgets.AssessmentImage
 import com.faysal.assessment.ui.widgets.PostWidget
 
 @Composable
-fun UserDetailsScreen() {
+fun UserDetailsScreen(
+    navController: NavHostController? = null,
+    posts: UserPosts
+) {
 
     val userPost = DUMMY_DATA
     Scaffold(
@@ -91,5 +96,5 @@ fun UserDetailsScreen() {
 @Preview
 @Composable
 fun UserDetailsScreenPreview() {
-    UserDetailsScreen()
+    UserDetailsScreen(posts = DUMMY_DATA, navController = null)
 }
